@@ -11,6 +11,9 @@ void Insert( OBJECT_TYPE* insertedObject, NODE** firstNode){
         NODE* newFirst = new NODE();
         newFirst->next = (*firstNode);
         newFirst->prev = NULL;
+        for(int i=0; (i < 10 || *(insertedObject+i) == '\0'); i++){
+            *(newFirst->info+i) = *(insertedObject+i);
+        }
         newFirst->info = *insertedObject;
         (*firstNode)->prev = newFirst;
         firstNode = &newFirst;

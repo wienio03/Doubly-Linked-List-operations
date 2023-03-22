@@ -1,7 +1,6 @@
 #include "main.h"
 void CreateList(NODE* firstNode, int argCount, ...){
     va_list arguments;
-
     va_start(arguments, argCount);
     for(int i=0; i<argCount; i++){
         int newObject = va_arg(arguments, int);

@@ -7,7 +7,11 @@ int main(){
     printf("-----------------------------\n");
     Display(test);
     printf("-----------------------------\n");
-    Insert(&test, &x);
+    //Insert(&test, &x);
+    //Display(test);
+    //Insert(&test, test->next, &x);
+    Display(test);
+    //Insert(&x, &test);
     Display(test);
     return 0;
 }
