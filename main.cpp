@@ -3,7 +3,7 @@
 int main(){
     NODE* test = new NODE();
     int x = 5;
-    CreateList(test, 7, 10, 34, 37, 1234, 17, 11, 12);
+    //CreateList(test, 7, 10, 34, 37, 1234, 17, 11, 12);
     printf("-----------------------------\n");
     Display(test);
     printf("-----------------------------\n");

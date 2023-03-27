@@ -1,21 +1,23 @@
 #include "main.h"
-void Insert( OBJECT_TYPE* insertedObject, NODE** firstNode){
-    if(firstNode==NULL){
-        NODE* newFirst = new NODE();
-        firstNode = &newFirst;
-        (*firstNode)->info = *insertedObject;
+void Insert(OBJECT_TYPE insertedObject, NODE** firstNode){
+    if(*firstNode==NULL){
+        *firstNode = (NODE*)malloc(sizeof(NODE));
         (*firstNode)->prev = NULL;
+        
+        for(int i = 0; i < MAX_SIZE && *(insertedObject + i) != '\0'; i++)
+            *((*firstNode)->info + i) = '\0';
+        
         (*firstNode)->next = NULL;
     }
     else{
-        NODE* newFirst = new NODE();
+        NODE* newFirst = (NODE*)malloc(sizeof(NODE));
         newFirst->next = (*firstNode);
         newFirst->prev = NULL;
-        for(int i=0; (i < 10 || *(insertedObject+i) == '\0'); i++){
+        
+        for(int i=0; i < MAX_SIZE && *(insertedObject+i) == '\0'; i++)
             *(newFirst->info+i) = *(insertedObject+i);
-        }
-        newFirst->info = *insertedObject;
+        
         (*firstNode)->prev = newFirst;
-        firstNode = &newFirst;
+        *firstNode = newFirst;
     }
 }
