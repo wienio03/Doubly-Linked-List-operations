@@ -8,13 +8,26 @@ NODE** ReadListFromFile(int dataAmount, FILE* inputFile){
     char bufferChar = '\0';
     while(dataAmount > 0){
         for(int i = 0; i < MAX_SIZE; i++){
-            *((*firstNode)->info + i) = ' ';
+            *((*firstNode)->info + i) = '\0';
         } 
         fscanf(inputFile,"%[^\n]s",(*firstNode)->info);  
+        int index;
+        for(int i = 0; i < MAX_SIZE; i++){
+            if(*((*firstNode)->info + i) == '\0'){
+                index = i;
+                break;
+            }
+        } 
+        if(index != MAX_SIZE - 1){
+            for(int i = index; i < MAX_SIZE; i++)
+                *((*firstNode)->info + i) = ' ';
+        }
+        *((*firstNode)->info + MAX_SIZE - 1) = '\0';
         bufferChar = fgetc(inputFile);    
         if(feof(inputFile)){
             printf("Koniec pliku\n");
-            break;
+            (*firstNode)->next = NULL;
+            break; 
         }
         dataAmount--;
         if(dataAmount != 0){
@@ -22,7 +35,7 @@ NODE** ReadListFromFile(int dataAmount, FILE* inputFile){
             (*firstNode)->next->prev = *(firstNode);
             *firstNode = (*firstNode)->next;
         }
-        if(dataAmount == 0)
+        if(dataAmount == 0 || feof(inputFile))
             (*firstNode)->next = NULL;
     }
     *firstNode = tmp;

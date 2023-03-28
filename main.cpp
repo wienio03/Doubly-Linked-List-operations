@@ -12,7 +12,7 @@ int main(){
     }
     //test:
     //tworzenie listy z pliku
-    NODE** head = ReadListFromFile(5,input);
+    NODE** head = ReadListFromFile(34,input);
     Display(*head);
     printf("--------------------\n");
     //insert last
@@ -33,6 +33,10 @@ int main(){
     printf("--------------------\n");
     //insert before
     Insert(head,(*head)->next->next,testObject);
+    Display(*head);
+    printf("--------------------\n");
+    //remove last
+    Remove(*head);
     Display(*head);
     printf("--------------------\n");
     //print to file

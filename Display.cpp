@@ -4,7 +4,11 @@ void Display(NODE* firstNode){
         int objectCount = 0;
         NODE* tmp = firstNode;
         while(firstNode!=NULL){
-            printf("%d: %s\n", objectCount, firstNode->info);
+            printf("%d: ", objectCount);
+            for(int i = 0; i < MAX_SIZE; i++)
+                printf("%c", *(firstNode->info + i));
+    
+            printf("|\n");
             
             firstNode = firstNode->next;
             
