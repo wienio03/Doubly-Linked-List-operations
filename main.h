@@ -1,22 +1,35 @@
 #include <iostream>
 #include <cstdarg>
-typedef char OBJECT_TYPE[10];
-#define MAX_SIZE 10
+
+#define MAX_SIZE 30
+
+typedef char OBJECT_TYPE[MAX_SIZE];
+
 struct NODE{
 NODE* prev;
 OBJECT_TYPE info;
 NODE* next;
 };
+
+//inserts
 void Insert(NODE**, OBJECT_TYPE);
 void Insert(OBJECT_TYPE, NODE**);
 void Insert(NODE**, NODE*, OBJECT_TYPE);
 void Insert(NODE*, OBJECT_TYPE);
+
+//display
 void Display(NODE*);
+
+//removes
 void Remove(NODE**);
 void Remove(NODE*);
 void Remove(NODE**, NODE*);
 void Remove(NODE*, NODE**);
-void ClearList(NODE**);
-void ReadListFromFile(int dataAmount, ...);
-void CreateList(NODE*, int argCount, ...);
 
+//clear
+void ClearList(NODE**);
+
+//others 
+void PrintListToFile(NODE*, FILE*);
+void CreateList(int, ...);
+NODE** ReadListFromFile(int, FILE*);

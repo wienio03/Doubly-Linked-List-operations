@@ -1,0 +1,9 @@
+List:
+NODE 0: test1 asdas
+NODE 1: testStr
+NODE 2: testStr
+NODE 3: test2  asdasdasdasd
+NODE 4: test3  aseddddddddddddasdadsdas
+NODE 5: test4  aaaaaaaaaaaaaaaaaaaaaaaaap6€B
+NODE 6: test5  asdasd
+NODE 7: testStr
